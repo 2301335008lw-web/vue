@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
 <div id="app">
   <span>現在の日時: {{currentDateTime.toLocaleString()}}</span>
@@ -21,3 +22,28 @@ Vue.createApp({
   }
 }).mount('#app')
 </script>
+=======
+<script src="https://unpkg.com/vue@3.5.0/dist/vue.global.js"></script>
+<div id="app">
+  <span>現在の日時: {{currentDateTime.toLocaleString()}}</span>
+</div>
+ 
+<script>
+Vue.createApp({
+  data: function() {
+    return {
+      currentDateTime: new Date()
+    }
+  },
+  created: function() {
+    let self = this;
+    this.timer = setInterval(function() {
+      self.currentDateTime = new Date();
+    }, 1000);
+  },
+  beforeUnmount: function() {
+    clearInterval(this.timer);
+  }
+}).mount('#app')
+</script>
+>>>>>>> fc734c3 (final update)
